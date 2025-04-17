@@ -1,3 +1,5 @@
+import uuid
+
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -5,8 +7,9 @@ from django.db import models
 
 user = get_user_model()
 
+
 class Profile(models.Model):
-    user = models.OneToOneField(user, models.CASCADE)
+    user = models.OneToOneField(user, models.CASCADE, related_name='profile')
     bio = models.TextField()
     img = models.ImageField(verbose_name='Photo de profil', upload_to="profile")
     location = models.CharField(max_length=100, blank=True)
@@ -16,4 +19,4 @@ class Profile(models.Model):
     
     class Meta:
         verbose_name = 'Profil'
-        
+

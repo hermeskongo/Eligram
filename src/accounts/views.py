@@ -2,10 +2,11 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
 
 # Create your views here.
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView, UpdateView
 
-from accounts.forms import RegistrationForm, UserLoginForm
+from accounts.forms import RegistrationForm, UserLoginForm, UserSettingForm
 from accounts.models import Profile
 from utils.mixins import CustomLoginRequiredMixin
 
@@ -30,3 +31,13 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy("core:index")
+
+
+class UserSettingView(UpdateView):
+    template_name = 'setting.html'
+    model = Profile
+    form_class = UserSettingForm
+    success_url = reverse_lazy("core:index")
+    
+    
+    

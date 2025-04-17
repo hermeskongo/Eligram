@@ -56,10 +56,6 @@
                         <p class="text-base">Pas de compte ? <a href="{% url 'accounts:registration' %}" class=""> Créer un compte </a></p>
                     </div>
                 </form>
-                <form action="{% url "accounts:logout" %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Se déconnecter</button>
-                </form>
             </div>
         </div>
         
