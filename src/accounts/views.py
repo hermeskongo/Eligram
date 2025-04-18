@@ -24,13 +24,13 @@ class RegistrationView(CreateView):
 
 
 class UserLoginView(LoginView):
-    success_url = reverse_lazy("core:index")
+    next_page = reverse_lazy("core:index")
     form_class = UserLoginForm
     template_name = 'signin.html'
 
 
 class UserLogoutView(LogoutView):
-    next_page = reverse_lazy("core:index")
+    next_page = reverse_lazy("accounts:login")
 
 
 class UserSettingView(UpdateView):

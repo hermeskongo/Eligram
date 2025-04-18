@@ -221,6 +221,10 @@ span.bookmark-icon {
             box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
   }
 }
+.my-link:hover {
+    cursor: pointer;
+}
+
 
 @-webkit-keyframes bookmark-icon {
   0% {
